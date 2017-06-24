@@ -16,13 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_margin="6dp"
-        android:background="#20b2aa" />
+        android:background="#918f8f" />
 
     <lecho.lib.hellocharts.view.PreviewLineChartView
         android:id="@+id/plcv_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:transitionName="pre_line"
         android:layout_weight="1" />
 
 </LinearLayout>

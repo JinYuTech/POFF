@@ -18,7 +18,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.bajie.poff.R;
@@ -85,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_menu_chart_real_time_data:
                         drawerLayout.closeDrawers();
-
+                        Intent intent = new Intent(MainActivity.this,RealTimeDataActivity.class);
+                        startActivity(intent);
                         break;
                     default:
                         break;
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 if(dataJson == null){
                     Toast.makeText(this, "没有数据，请刷新一下", Toast.LENGTH_SHORT).show();
                 }else{
-                    Intent intent = new Intent(this,DataChartStatistic.class);
+                    Intent intent = new Intent(this,DataChartStatisticActivity.class);
                     intent.putExtra("dataJson",dataJson);
                     startActivity(intent);
                 }

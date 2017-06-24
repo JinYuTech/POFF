@@ -26,7 +26,7 @@ import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.LineChartView;
 import lecho.lib.hellocharts.view.PreviewLineChartView;
 
-public class DataChartStatistic extends AppCompatActivity {
+public class DataChartStatisticActivity extends AppCompatActivity {
 
     private LineChartView lineChartView;
     private PreviewLineChartView previewLineChartView;
@@ -34,7 +34,7 @@ public class DataChartStatistic extends AppCompatActivity {
     private List<PointValue> gasDataPoints = new ArrayList<>();
     private LineChartData mChartData;                   //展示区域的数据
     private LineChartData mPreChartData;                //预览区域的数据
-    private Axis axisY, axisX;
+    private Axis axisX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +66,10 @@ public class DataChartStatistic extends AppCompatActivity {
         Line lineTemperature = new Line(tempDataPoints);
         Line lineGas = new Line(gasDataPoints);
 
+        axisX = new Axis()
+                .setLineColor(Color.parseColor("#20b2aa"))
+                .setTextColor(Color.parseColor("#20b2aa"));
+
         lineTemperature.setColor(Color.parseColor("#ffa07a"))
                         .setShape(ValueShape.CIRCLE)
                         .setCubic(true)//曲线是否平滑，即是曲线还是折线
@@ -85,7 +89,9 @@ public class DataChartStatistic extends AppCompatActivity {
         lines.add(lineTemperature);
         lines.add(lineGas);
 
+
         mChartData = new LineChartData(lines);
+        mChartData.setAxisXBottom(axisX);
         mChartData.setValueLabelBackgroundEnabled(false);//下面两行代码的前提
         mChartData.setValueLabelBackgroundColor(Color.TRANSPARENT);//设置点的标签的背景
         mChartData.setValueLabelsTextColor(Color.parseColor("#20b2aa"));//设置标签的字体颜色

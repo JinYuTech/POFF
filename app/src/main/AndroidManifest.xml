@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DataChartStatistic"></activity>
+        <activity android:name=".activity.DataChartStatisticActivity" />
+        <activity android:name=".activity.RealTimeDataActivity"></activity>
     </application>
 
 </manifest>
