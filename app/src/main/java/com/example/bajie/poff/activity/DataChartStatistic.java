@@ -88,7 +88,7 @@ public class DataChartStatistic extends AppCompatActivity {
         mChartData = new LineChartData(lines);
         mChartData.setValueLabelBackgroundEnabled(false);//下面两行代码的前提
         mChartData.setValueLabelBackgroundColor(Color.TRANSPARENT);//设置点的标签的背景
-        mChartData.setValueLabelsTextColor(Color.parseColor("#ee82ee"));//设置标签的字体颜色
+        mChartData.setValueLabelsTextColor(Color.parseColor("#20b2aa"));//设置标签的字体颜色
         //禁用详细图的缩放和滑动效果，这部分功能仅仅取决于预览区
         lineChartView.setLineChartData(mChartData);
         lineChartView.setZoomEnabled(false);
