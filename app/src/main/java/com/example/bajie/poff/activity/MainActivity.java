@@ -207,11 +207,16 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 break;
-            case R.id.temp_line_chart_statistic:
-
-                break;
-            case R.id.gas_line_chart_statistic:
-
+            case R.id.chart_statistic:
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                String dataJson = prefs.getString("dataJson",null);
+                if(dataJson == null){
+                    Toast.makeText(this, "没有数据，请刷新一下", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(this,DataChartStatistic.class);
+                    intent.putExtra("dataJson",dataJson);
+                    startActivity(intent);
+                }
                 break;
             default:
                 break;
