@@ -218,9 +218,46 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 break;
+            case R.id.clear_data:
+                clearData(ApiStrUtil.clearData);
             default:
                 break;
         }
         return true;
+    }
+
+    public void clearData(String url) {
+        HttpUtil.sendOkhttpRequest(url, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "清空数据失败！", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseStr = response.body().string();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject object = new JSONObject(responseStr);
+                            if(object.getInt("num") == 0){
+                                Toast.makeText(MainActivity.this, "清空数据成功！", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(MainActivity.this, "清空数据失败！", Toast.LENGTH_SHORT).show();
+                            }
+                            requestAllData(ApiStrUtil.allData);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
     }
 }

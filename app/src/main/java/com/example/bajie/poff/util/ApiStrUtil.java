@@ -8,13 +8,17 @@ public class ApiStrUtil {
     /**
      * Receiving all data list.
      */
-    public final static String allData = "http://10.0.2.2:8080/GCSJ5/allData";
+    public final static String allData = "http://119.29.221.157/Forest/allData";
     /**
      * Receiving first temperature data.
      */
-    public final static String firstTempData = "http://10.0.2.2:8080/GCSJ5/firstTempData";
+    public final static String firstTempData = "http://119.29.221.157/Forest/firstTempData";
     /**
      * Receiving first temperature data.
      */
-    public final static String firstGasData = "http://10.0.2.2:8080/GCSJ5/firstGasData";
+    public final static String firstGasData = "http://119.29.221.157/Forest/firstGasData";
+    /**
+     * clear data
+     */
+    public final static String clearData="http://119.29.221.157/Forest/clearData";
 }

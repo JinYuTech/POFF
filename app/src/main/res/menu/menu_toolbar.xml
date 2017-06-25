@@ -5,4 +5,8 @@
         android:id="@+id/chart_statistic"
         android:title="曲线统计"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/clear_data"
+        android:title="清空数据"
+        app:showAsAction="never"/>
 </menu>
