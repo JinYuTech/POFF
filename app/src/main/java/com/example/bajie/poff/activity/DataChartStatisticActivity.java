@@ -134,7 +134,7 @@ public class DataChartStatisticActivity extends AppCompatActivity {
             JSONArray jsonArray = new JSONArray(jsonStr);
             int tempCount = 0;
             int gasCount = 0;
-            for(int i = 0;i<jsonArray.length();i++){
+            for(int i = jsonArray.length()-1 ; i >= 0 ; i--){
                 JSONObject object = jsonArray.getJSONObject(i);
                 if(object.getInt("deviceId") == 1){
                     PointValue point = new PointValue(tempCount,Float.parseFloat(object.getString("data")));
